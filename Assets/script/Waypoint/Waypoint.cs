@@ -19,9 +19,9 @@ public class Waypoint : MonoBehaviour
         _currentPos = transform.position; // Armazena a posição atual do objeto.
     }
 
-    void Update()
+    public Vector3 GetwaypointPosition(int index) // Retorna a posição do waypoint.
     {
-
+        return CurrentPos + Points[index];
     }
 
     private void OnDrawGizmos()
