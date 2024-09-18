@@ -31,7 +31,7 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         _pooler = GetComponent<ObjectPooler>(); // Define o pooler como o componente ObjectPooler.  
-        _waypoint = GetComponent<Waypoint>(); // Define o waypoint como o componente Waypoint.
+        _waypoint = GetComponentInParent<Waypoint>(); // Define o waypoint como o componente Waypoint.
     }
 
     // Update is called once per frame
