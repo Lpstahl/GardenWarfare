@@ -3,10 +3,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField]public float movespeed = 2f; // velocidade do inimigo
-    [SerializeField] private Waypoint waypoint; // caminho que o inimigo vai seguir
+    public static Action OnEndReached; // evento que é chamado quando o inimigo chega ao final do caminho
 
-    private Vector3 CurrentPosition => waypoint.GetwaypointPosition(_currentWaypointIndex); // posição do waypoint atual
+    [SerializeField]public float movespeed = 2f; // velocidade do inimigo
+
+    public Waypoint Waypoint { get; set; } // propriedade do tipo Waypoint
+
+    private Vector3 CurrentPosition => Waypoint.GetwaypointPosition(_currentWaypointIndex); // posição do waypoint atual
 
     private int _currentWaypointIndex; // index do waypoint atual
 
@@ -42,10 +45,20 @@ public class Enemy : MonoBehaviour
 
     private void UpdateCurrentPointIndex()
     {
-        int lastWaypointIndex = waypoint.Points.Length - 1; // index do ultimo waypoint
+        int lastWaypointIndex = Waypoint.Points.Length - 1; // index do ultimo waypoint
         if (_currentWaypointIndex < lastWaypointIndex) // se o index do waypoint atual for menor que o index do ultimo waypoint
         {
             _currentWaypointIndex++; // incrementa o index do waypoint
         }
+        else
+        {
+            ReturnEnemyToPool(); // se não, retorna o inimigo para o pool
+        }
+    }
+
+    private void ReturnEnemyToPool()
+    {
+       OnEndReached?.Invoke(); // chama o evento de fim de caminho
+        ObjectPooler.ReturnToPool(gameObject); // retorna o inimigo para o pool
     }
 }

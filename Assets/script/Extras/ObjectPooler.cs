@@ -45,4 +45,8 @@ public class ObjectPooler : MonoBehaviour
         }
                 return CreateInstance(); // Retorna um novo GameObject.
     }
+    public static void ReturnToPool(GameObject instance)
+    {
+        instance.SetActive(false); // Desativa o GameObject.
+    } 
 }

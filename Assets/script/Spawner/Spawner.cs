@@ -13,7 +13,6 @@ public class Spawner : MonoBehaviour
     [Header("Spawner Settings")]
     [SerializeField] private SpawnType spawnType = SpawnType.Fixed; // Define o tipo de spawn.
     [SerializeField] private int enemyCount = 10; // Define o número de inimigos.
-    [SerializeField] private GameObject testGO; //  Define o GameObject de teste.
 
     [Header("Fixed Spawn")]
     [SerializeField] private float delayBtwSpawns; // Define o delay entre spawns.
@@ -27,9 +26,12 @@ public class Spawner : MonoBehaviour
 
     private ObjectPooler _pooler;// Define o pooler como o componente ObjectPooler.
 
+    private Waypoint _waypoint; // Define o waypoint.
+
     private void Start()
     {
         _pooler = GetComponent<ObjectPooler>(); // Define o pooler como o componente ObjectPooler.  
+        _waypoint = GetComponent<Waypoint>(); // Define o waypoint como o componente Waypoint.
     }
 
     // Update is called once per frame
@@ -50,6 +52,11 @@ public class Spawner : MonoBehaviour
     private void SpawnEnemy()
     {
         GameObject newInstance = _pooler.GetInstanceFromPool(); // Instancia um novo GameObject.
+        Enemy enemy = newInstance.GetComponent<Enemy>(); // Define o inimigo como o componente Enemy.
+        enemy.Waypoint = _waypoint; // Define o waypoint do inimigo como o waypoint.
+
+        enemy.transform.localPosition = transform.position; // Define a posição do inimigo como a posição do spawner.
+
         newInstance.SetActive(true); // Ativa o GameObject.
     }
 
