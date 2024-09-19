@@ -13,6 +13,7 @@ public class Spawner : MonoBehaviour
     [Header("Spawner Settings")]
     [SerializeField] private SpawnType spawnType = SpawnType.Fixed; // Define o tipo de spawn.
     [SerializeField] private int enemyCount = 10; // Define o número de inimigos.
+    [SerializeField] private float delayBtwWaves = 1f; // Define o delay entre waves.
 
     [Header("Fixed Spawn")]
     [SerializeField] private float delayBtwSpawns; // Define o delay entre spawns.
@@ -23,6 +24,7 @@ public class Spawner : MonoBehaviour
 
     private float _spawnTimer; // Define o timer de spawn.
     private int _enemiesSpawned; // Define o número de inimigos spawnados.
+    private int _enemiesRemaining; // Define o número de inimigos restantes.
 
     private ObjectPooler _pooler;// Define o pooler como o componente ObjectPooler.
 
@@ -32,6 +34,8 @@ public class Spawner : MonoBehaviour
     {
         _pooler = GetComponent<ObjectPooler>(); // Define o pooler como o componente ObjectPooler.  
         _waypoint = GetComponentInParent<Waypoint>(); // Define o waypoint como o componente Waypoint.
+
+        _enemiesRemaining = enemyCount; // Define o número de inimigos restantes como o número de inimigos.
     }
 
     // Update is called once per frame
@@ -54,9 +58,9 @@ public class Spawner : MonoBehaviour
         GameObject newInstance = _pooler.GetInstanceFromPool(); // Instancia um novo GameObject.
         Enemy enemy = newInstance.GetComponent<Enemy>(); // Define o inimigo como o componente Enemy.
         enemy.Waypoint = _waypoint; // Define o waypoint do inimigo como o waypoint.
+        enemy.ResetEnemy(); // Reseta o inimigo.
 
         enemy.transform.localPosition = transform.position; // Define a posição do inimigo como a posição do spawner.
-
         newInstance.SetActive(true); // Ativa o GameObject.
     }
 
@@ -78,5 +82,31 @@ public class Spawner : MonoBehaviour
     {
         float randomTimer = Random.Range(minRandomDelay, maxRandowDelay); // Define o timer aleatório como um valor aleatório entre o mínimo e o máximo.
         return randomTimer; // Retorna o timer aleatório.
+    }
+
+    private IEnumerator StartNextWave()
+    {
+        yield return new WaitForSeconds(delayBtwWaves); // Aguarda o delay entre waves.
+        _enemiesRemaining = enemyCount; // Define o número de inimigos restantes como o número de inimigos.
+        _spawnTimer = 0f; // Define o timer de spawn como 0.
+        _enemiesSpawned = 0; // Define o número de inimigos spawnados como 0.
+    }
+    private void RecordEnemyEndReached()
+    {
+        _enemiesRemaining--; // Decrementa o número de inimigos restantes.
+        if (_enemiesRemaining <= 0) // Se o número de inimigos restantes for menor ou igual a 0,
+        {
+            StartCoroutine(StartNextWave()); // Inicia a próxima wave.
+        }
+    }
+    
+    private void OnEnable()
+    {
+        Enemy.OnEndReached += RecordEnemyEndReached; // Adiciona o evento de fim de caminho.
+    }
+
+    private void OnDisable()
+    {
+        Enemy.OnEndReached -= RecordEnemyEndReached; // Remove o evento de fim de caminho.
     }
 }

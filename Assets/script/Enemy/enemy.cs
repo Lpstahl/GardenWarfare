@@ -61,4 +61,9 @@ public class Enemy : MonoBehaviour
        OnEndReached?.Invoke(); // chama o evento de fim de caminho
         ObjectPooler.ReturnToPool(gameObject); // retorna o inimigo para o pool
     }
+
+    public void ResetEnemy()
+    {
+       _currentWaypointIndex = 0; // reseta o index do waypoint
+    }
 }
