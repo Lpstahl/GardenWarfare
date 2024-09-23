@@ -12,19 +12,20 @@ public class Tower : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Attack());
+        StartCoroutine(Attack());//inicia o ataque
     }
 
     IEnumerator Attack()
     {
-        while (true)
+        while (true) // tiros infinitos
         {
+
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange);
             foreach (var enemy in hitEnemies)
             {
                 if (enemy.CompareTag("Enemy"))  
                 {
-                    Shoot(enemy.transform);  // Chama o método Shoot
+                    Shoot(enemy.transform);  
                     break;  
                 }
             }
@@ -34,12 +35,14 @@ public class Tower : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        //alcance dd disparo
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 
     void Shoot(Transform target)
     {
+        //projetil dispara os tiros da torre
         GameObject projectile = Instantiate(projectilePrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
         Vector2 direction = (target.position - firePoint.position).normalized;
