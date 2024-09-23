@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemyPrefab;
     public Transform spawnPoint;
     public float spawnInterval = 2f;
+    
 
     void Start()
     {
