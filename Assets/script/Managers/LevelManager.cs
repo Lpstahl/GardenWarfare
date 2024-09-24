@@ -30,6 +30,6 @@ public class LevelManager : MonoBehaviour
 
     private void OnDisable()
     {
-        Enemy.OnEndReached -= ReduceLives;
+        Enemy.OnEndReached -= ReduceLives; // Remove o evento de fim de caminho.
     }
 }
