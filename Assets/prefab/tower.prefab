@@ -375,7 +375,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 3
   attackInterval: 1
-  damage: 1
+  damage: 3
   projectilePrefab: {fileID: 1778014584597573784}
   firePoint: {fileID: 6748064396122118866}
   projectileSpeed: 7
