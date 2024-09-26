@@ -91,7 +91,7 @@ public class Spawner : MonoBehaviour
         _spawnTimer = 0f; // Define o timer de spawn como 0.
         _enemiesSpawned = 0; // Define o número de inimigos spawnados como 0.
     }
-    private void RecordEnemyEndReached()
+    private void RecordEnemy()
     {
         _enemiesRemaining--; // Decrementa o número de inimigos restantes.
         if (_enemiesRemaining <= 0) // Se o número de inimigos restantes for menor ou igual a 0,
@@ -102,11 +102,13 @@ public class Spawner : MonoBehaviour
     
     private void OnEnable()
     {
-        Enemy.OnEndReached += RecordEnemyEndReached; // Adiciona o evento de fim de caminho.
+        Enemy.OnEndReached += RecordEnemy; // Adiciona o evento de fim de caminho.
+        Enemy.OnEnemyKilled += RecordEnemy; // Adiciona o evento de inimigo morto.
     }
 
     private void OnDisable()
     {
-        Enemy.OnEndReached -= RecordEnemyEndReached; // Remove o evento de fim de caminho.
+        Enemy.OnEndReached -= RecordEnemy; // Remove o evento de fim de caminho.
+        Enemy.OnEnemyKilled -= RecordEnemy; // Remove o evento de inimigo morto.
     }
 }

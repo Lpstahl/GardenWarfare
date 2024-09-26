@@ -481,7 +481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 474306490549868928, guid: 9b44336e1b8a95a4bbb647cccdaa9044, type: 3}
-  poolSize: 20
+  poolSize: 10
 --- !u!114 &1967440143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -495,7 +495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnType: 1
-  enemyCount: 20
+  enemyCount: 1
   delayBtwWaves: 1
   delayBtwSpawns: 1
   minRandomDelay: 1

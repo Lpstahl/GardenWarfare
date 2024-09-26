@@ -5,12 +5,13 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour
 {
     public static Action OnEndReached; // Define a ação OnEndReached.
+    public static Action OnEnemyKilled; // Define a ação OnEnemyKilled.
 
     [SerializeField] public float movespeed = 2f;
     
     [Header("Health")]
-    [SerializeField] public float initialHealth = 100f; // saúde do inimigo
-    [SerializeField] public float maxHealth = 100f; // saúde máxima do inimigo
+    [SerializeField] public float initialHealth; // saúde do inimigo
+    [SerializeField] public float maxHealth; // saúde máxima do inimigo
     
     [SerializeField] private GameObject healthBarPrefab; // Prefab da barra de vida.
     [SerializeField] private Transform barPosition; // Posição da barra de vida.
@@ -64,13 +65,14 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            ReturnEnemyToPool(); // Retorna o inimigo para o pool.
+            EndPointReached(); // Retorna o inimigo para o pool.
         }
     }
 
-    private void ReturnEnemyToPool()
+    private void EndPointReached()
     {
         OnEndReached?.Invoke(); // Invoca a ação OnEndReached.
+        ResetHealth(); // Reseta a saúde do inimigo.
         ObjectPooler.ReturnToPool(gameObject); // Retorna o inimigo para o pool.
     }
 
@@ -90,18 +92,24 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        initialHealth -= amount; // Decrementa a saúde do inimigo.
-        _helthBar.fillAmount = initialHealth / maxHealth; // Atualiza a barra de vida.
-        if (initialHealth <= 0) // Se a saúde do inimigo for menor ou igual a 0,
+        CurrentHealth -= amount; // Decrementa a saúde do inimigo.
+        _helthBar.fillAmount = CurrentHealth / maxHealth; // Atualiza a barra de vida.
+        if (CurrentHealth <= 0) // Se a saúde do inimigo for menor ou igual a 0,
         {
             Die(); // Morre.
         }
     }
 
+    public void ResetHealth()
+    {
+        CurrentHealth = initialHealth; // Define a saúde atual como a saúde inicial.
+        _helthBar.fillAmount = 1f; // Atualiza a barra de vida.
+    }
+
     private void Die()
     {
-        CurrentHealth = maxHealth; // Define a saúde atual como a saúde máxima.
-        _helthBar.fillAmount = 1f; // Atualiza a barra de vida.
+        ResetHealth(); // Reseta a saúde do inimigo.
+        OnEnemyKilled?.Invoke(); // Invoca a ação OnEnemyKilled.
         ObjectPooler.ReturnToPool(gameObject); // Retorna o inimigo para o pool.
     }
 }
