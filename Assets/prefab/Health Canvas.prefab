@@ -29,7 +29,7 @@ RectTransform:
   m_GameObject: {fileID: 2564320409711525374}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9131433, y: 1.9131433, z: 1.9131433}
+  m_LocalScale: {x: 0.28978384, y: 0.28978384, z: 0.28978384}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1417021547045776766}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &9113110381451018620
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ RectTransform:
   m_GameObject: {fileID: 3056563165467937144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.4596, y: 1.4596, z: 1.4596}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1423654390319587876}

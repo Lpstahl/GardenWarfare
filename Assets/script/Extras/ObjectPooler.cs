@@ -5,7 +5,9 @@ using UnityEngine;
 // Pooler é como uma fábrica de objetos que mantém uma reserva (pool) de objetos prontos para uso, em vez de criar e descartar objetos o tempo todo.
 public class ObjectPooler : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab; // Define o prefab a ser instanciado.
+    //criar list de prefabs
+    [SerializeField] private GameObject[] prefab; // Define o prefab a ser instanciado.
+   
     [SerializeField] private int poolSize = 10; // Define o tamanho do pool.
 
     private List<GameObject> _pool; // Define a lista de GameObjects.
@@ -14,7 +16,7 @@ public class ObjectPooler : MonoBehaviour
     private void Awake()
     {
         _pool = new List<GameObject>(); // Inicializa a lista de GameObjects.
-        _poolContainer = new GameObject($"Pool - {prefab.name}"); // Cria o container do pool.
+        _poolContainer = new GameObject($"Pool - {prefab}"); // Cria o container do pool.
         CreatePooler(); // Cria o pooler.
     }
 
@@ -28,7 +30,8 @@ public class ObjectPooler : MonoBehaviour
 
     private GameObject CreateInstance()
     {
-        GameObject newInstance = Instantiate(prefab); // Instancia um novo GameObject.
+        int randomIndex = Random.Range(0, prefab.Length); // Gera um índice aleatório para selecionar um prefab.
+        GameObject newInstance = Instantiate(prefab[randomIndex]); // Instancia um novo GameObject aleatório.
         newInstance.transform.SetParent(_poolContainer.transform); // Define o container do pool como o pai do GameObject.
         newInstance.SetActive(false); // Desativa o GameObject.
         return newInstance; // Retorna o GameObject.

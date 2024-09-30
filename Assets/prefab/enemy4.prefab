@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6003030052476435867}
   - component: {fileID: 7433128407606942548}
   m_Layer: 0
-  m_Name: enemy2
+  m_Name: enemy4
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b58bae7b0114b164390c81fac4aa5f06, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 99be80eb17ebf314c92f6337a4525f60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -128,8 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movespeed: 2
-  initialHealth: 6
-  maxHealth: 6
+  initialHealth: 10
+  maxHealth: 10
   healthBarPrefab: {fileID: 2564320409711525374, guid: 7097f9cf10239cd4faf9d144af6b746f, type: 3}
   barPosition: {fileID: 384316138703328824}
 --- !u!61 &7433128407606942548

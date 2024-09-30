@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private int lives = 10; // Define o número de vidas.
 
     public int TotalLives { get; set; } // Define o número total de vidas.
+    public int CurrentWave { get; set; } // Define a wave atual.
 
     private void Start()
     {
         TotalLives = lives; // Define o número total de vidas.
     }
+
 
     private void ReduceLives()
     {
