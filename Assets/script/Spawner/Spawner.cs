@@ -26,13 +26,13 @@ public class Spawner : MonoBehaviour
     private int _enemiesSpawned; // Define o número de inimigos spawnados.
     private int _enemiesRemaining; // Define o número de inimigos restantes.
 
-    private ObjectPooler _pooler;// Define o pooler como o componente ObjectPooler.
+    private ObjectPooler _pooler; // Define o pooler de inimigos.
 
     private Waypoint _waypoint; // Define o waypoint.
 
     private void Start()
     {
-        _pooler = GetComponent<ObjectPooler>(); // Define o pooler como o componente ObjectPooler.  
+        _pooler = GetComponent<ObjectPooler>(); // Define o pooler como o componente ObjectPooler.
         _waypoint = GetComponentInParent<Waypoint>(); // Define o waypoint como o componente Waypoint.
 
         _enemiesRemaining = enemyCount; // Define o número de inimigos restantes como o número de inimigos.
@@ -83,6 +83,7 @@ public class Spawner : MonoBehaviour
         float randomTimer = Random.Range(minRandomDelay, maxRandowDelay); // Define o timer aleatório como um valor aleatório entre o mínimo e o máximo.
         return randomTimer; // Retorna o timer aleatório.
     }
+
 
     private IEnumerator StartNextWave()
     {
