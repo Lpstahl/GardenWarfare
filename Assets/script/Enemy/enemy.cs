@@ -26,10 +26,12 @@ public class Enemy : MonoBehaviour
 
     private int _currentWaypointIndex; // Define o índice do waypoint atual.
 
+    private PlayerHealth playerHealth; // Referência ao script de saúde do jogador.
 
     private void Start()
     {
         _currentWaypointIndex = 0; // Define o índice do waypoint atual como 0.
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>(); // Obtém a referência ao script de saúde do jogador.
 
         CreateHealthBar(); // Cria a barra de vida.
         CurrentHealth = initialHealth; // Define a saúde atual como a saúde inicial.
@@ -42,7 +44,6 @@ public class Enemy : MonoBehaviour
         {
             UpdateCurrentPointIndex();  // Atualiza o índice do ponto atual.
         }
-  
     }
 
     private void Move()
@@ -72,6 +73,7 @@ public class Enemy : MonoBehaviour
     private void EndPointReached()
     {
         OnEndReached?.Invoke(); // Invoca a ação OnEndReached.
+        playerHealth.TakeDamage(10); // Causa dano ao jogador.
         ResetHealth(); // Reseta a saúde do inimigo.
         ObjectPooler.ReturnToPool(gameObject); // Retorna o inimigo para o pool.
     }
