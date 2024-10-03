@@ -131,7 +131,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138505139}
-  - component: {fileID: 138505138}
   m_Layer: 0
   m_Name: waypoint
   m_TagString: Untagged
@@ -139,31 +138,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &138505138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 138505137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71f2224a84d6d947a59eead0864dbf2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  points:
-  - {x: -8.800309, y: 0.12444162, z: 0}
-  - {x: -6.3315177, y: 0.48201823, z: 0}
-  - {x: -4.7425213, y: 2.8775754, z: 0}
-  - {x: -2.3183875, y: 3.0347996, z: 0}
-  - {x: -1.6878537, y: 0.6532123, z: 0}
-  - {x: -1.8890612, y: -2.6063457, z: 0}
-  - {x: 0.96808195, y: -3.3709326, z: 0}
-  - {x: 3.4630518, y: -2.8880348, z: 0}
-  - {x: 4.4690895, y: -1.8819991, z: 0}
-  - {x: 4.6702933, y: 0.73369527, z: 0}
-  - {x: 5.998262, y: 2.0214214, z: 0}
-  - {x: 8.69444, y: 2.303112, z: 0}
 --- !u!4 &138505139
 Transform:
   m_ObjectHideFlags: 0

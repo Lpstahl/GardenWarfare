@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|c:\\meus arquivos\\github\\gardenwarfare\\assets\\script\\ui\\startgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\ui\\startgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|C:\\Meus Arquivos\\GitHub\\GardenWarfare\\assets\\script\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|c:\\meus arquivos\\github\\gardenwarfare\\assets\\script\\tower\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|C:\\Meus Arquivos\\GitHub\\GardenWarfare\\assets\\script\\tower\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\tower\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -46,11 +50,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 0,
+              "Title": "StartGame.cs",
+              "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\UI\\StartGame.cs",
+              "RelativeDocumentMoniker": "Assets\\script\\UI\\StartGame.cs",
+              "ToolTip": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\UI\\StartGame.cs",
+              "RelativeToolTip": "Assets\\script\\UI\\StartGame.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-30T20:36:19.982Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ClassDiagram2.cd",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\ClassDiagram2.cd",
               "RelativeDocumentMoniker": "ClassDiagram2.cd",
@@ -61,7 +78,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Spawner.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Spawner\\Spawner.cs",
               "RelativeDocumentMoniker": "Assets\\script\\Spawner\\Spawner.cs",
@@ -73,7 +90,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Waypoint.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Waypoint\\Waypoint.cs",
               "RelativeDocumentMoniker": "Assets\\script\\Waypoint\\Waypoint.cs",
@@ -85,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "WaypointEditor.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Waypoint\\Editor\\WaypointEditor.cs",
               "RelativeDocumentMoniker": "Assets\\script\\Waypoint\\Editor\\WaypointEditor.cs",
@@ -93,12 +110,11 @@
               "RelativeToolTip": "Assets\\script\\Waypoint\\Editor\\WaypointEditor.cs",
               "ViewState": "AQIAAAYAAAAAAAAAAAA6wAgAAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T14:42:47.123Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-18T14:42:47.123Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "enemy.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Enemy\\enemy.cs",
               "RelativeDocumentMoniker": "Assets\\script\\Enemy\\enemy.cs",
@@ -106,12 +122,11 @@
               "RelativeToolTip": "Assets\\script\\Enemy\\enemy.cs",
               "ViewState": "AQIAADYAAAAAAAAAAAAowHIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T19:41:54.259Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-18T19:41:54.259Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Tower.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Tower\\Tower.cs",
               "RelativeDocumentMoniker": "Assets\\script\\Tower\\Tower.cs",
@@ -119,12 +134,11 @@
               "RelativeToolTip": "Assets\\script\\Tower\\Tower.cs",
               "ViewState": "AQIAAAcAAAAAAAAAAAAIwDIAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T15:35:04.896Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-09-25T15:35:04.896Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ObjectPooler.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Extras\\ObjectPooler.cs",
               "RelativeDocumentMoniker": "Assets\\script\\Extras\\ObjectPooler.cs",
@@ -136,7 +150,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "LevelManager.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Managers\\LevelManager.cs",
               "RelativeDocumentMoniker": "Assets\\script\\Managers\\LevelManager.cs",
@@ -148,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "GameManager.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\GameManager.cs",
               "RelativeDocumentMoniker": "Assets\\script\\GameManager.cs",
