@@ -1,33 +1,63 @@
-using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public Transform spawnPoint;
-    public float spawnInterval = 2f;
-    
+    public int points = 100; // Pontos iniciais do jogador
+    public Text pointsText; // UI Text para mostrar os pontos
 
-    void Start()
+    private void Start()
     {
-        if (enemyPrefab == null || spawnPoint == null)
-        {
-            Debug.Log("prefab ou Spawn nao esta atribuido no GameManager.");
-            return;
-        }
-
-        StartCoroutine(SpawnEnemies());
+        UpdatePointsText(); // Atualiza o texto dos pontos no início
     }
 
-    IEnumerator SpawnEnemies()
+    // Função para gastar pontos
+    public bool SpendPoints(int amount)
     {
-        while (true)
+        if (points >= amount)
         {
-            if (enemyPrefab != null && spawnPoint != null)
-            {
-                Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-            }
-            yield return new WaitForSeconds(spawnInterval);
+            points -= amount;
+            UpdatePointsText();
+            return true;
         }
+        return false;
+    }
+
+    // Função para conceder pontos
+    public void AddPoints(int amount)
+    {
+        points += amount;
+        UpdatePointsText();
+    }
+
+    // Função para comprar torres
+    public void BuyTower(string towerAssetPath, int cost)
+    {
+        Debug.Log("Tentando comprar a torre: " + towerAssetPath + " por " + cost + " pontos.");
+        
+        if (SpendPoints(cost))
+        {
+            // Carregar o prefab da torre a partir do caminho do asset
+            GameObject towerPrefab = Resources.Load<GameObject>(towerAssetPath);
+            if (towerPrefab != null)
+            {
+                Debug.Log("Prefab da torre carregado com sucesso.");
+                Instantiate(towerPrefab, new Vector3(0, 0, 0), Quaternion.identity); // Ajuste a posição conforme necessário
+            }
+            else
+            {
+                Debug.LogError("Não foi possível carregar o prefab da torre: " + towerAssetPath);
+            }
+        }
+        else
+        {
+            Debug.Log("Não há pontos suficientes para comprar a torre.");
+        }
+    }
+
+    // Função para atualizar o texto dos pontos
+    private void UpdatePointsText()
+    {
+        pointsText.text = "Points: " + points.ToString();
     }
 }
