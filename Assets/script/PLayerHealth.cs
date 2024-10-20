@@ -1,10 +1,12 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class PLayerHealth : MonoBehaviour
 {
-    public int health = 3; 
+    public int health = 3;
     public HeartManager heartManager; // Referencia ao HeartManager
+
+    [SerializeField] private GameObject gameOverUI;  // Referência à tela de Game Over.
 
     private void Start()
     {
@@ -24,13 +26,13 @@ public class PLayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player morreu!");
-       
-          GameOver();
+
+        GameOver();
     }
 
     private void GameOver()
     {
-       
-        SceneManager.LoadScene("GameOver"); 
+        gameOverUI.SetActive(true);  // Ativa a tela de Game Over.
+        Time.timeScale = 0f;  // Pausa o tempo do jogo.
     }
 }
