@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|c:\\meus arquivos\\github\\gardenwarfare\\assets\\script\\ui\\startgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\ui\\startgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|C:\\Meus Arquivos\\GitHub\\GardenWarfare\\assets\\script\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\enemy\\enemy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|c:\\meus arquivos\\github\\gardenwarfare\\assets\\script\\ui\\startgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\ui\\startgame.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6DAAEDD5-928B-F66E-FBD3-00BB5C3662FB}|Assembly-CSharp.csproj|C:\\Meus Arquivos\\GitHub\\GardenWarfare\\assets\\script\\tower\\tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -50,11 +50,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "StartGame.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\UI\\StartGame.cs",
               "RelativeDocumentMoniker": "Assets\\script\\UI\\StartGame.cs",
@@ -114,15 +114,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "enemy.cs",
               "DocumentMoniker": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Enemy\\enemy.cs",
               "RelativeDocumentMoniker": "Assets\\script\\Enemy\\enemy.cs",
               "ToolTip": "C:\\Meus Arquivos\\GitHub\\GardenWarfare\\Assets\\script\\Enemy\\enemy.cs",
               "RelativeToolTip": "Assets\\script\\Enemy\\enemy.cs",
-              "ViewState": "AQIAADYAAAAAAAAAAAAowHIAAAABAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-18T19:41:54.259Z"
+              "WhenOpened": "2024-09-18T19:41:54.259Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",

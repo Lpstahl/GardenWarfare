@@ -2,54 +2,88 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Pooler é como uma fábrica de objetos que mantém uma reserva (pool) de objetos prontos para uso, em vez de criar e descartar objetos o tempo todo.
 public class ObjectPooler : MonoBehaviour
 {
-    //criar list de prefabs
-    [SerializeField] private GameObject[] prefab; // Define o prefab a ser instanciado.
-   
-    [SerializeField] private int poolSize = 10; // Define o tamanho do pool.
+    [System.Serializable]
+    public class Pool
+    {
+        public GameObject prefab;  // O prefab que será instanciado.
+        public int quantity;  // Quantidade de objetos que deseja no pool.
+        public float startDelay;  // O delay antes de começar a spawnar esse pool.
 
-    private List<GameObject> _pool; // Define a lista de GameObjects.
-    private GameObject _poolContainer; // Define o container do pool.
+        [HideInInspector]
+        public float delayTimer;  // Temporizador interno para controlar o delay entre spawns.
+    }
+
+    [SerializeField] public Pool[] pools;  // Lista de pools configuráveis.
+    private List<GameObject> _pool;  // Lista de objetos criados para reuso.
+    private GameObject _poolContainer;  // Contêiner pai para organizar os objetos no pool.
 
     private void Awake()
     {
-        _pool = new List<GameObject>(); // Inicializa a lista de GameObjects.
-        _poolContainer = new GameObject($"Pool - {prefab}"); // Cria o container do pool.
-        CreatePooler(); // Cria o pooler.
+        _pool = new List<GameObject>();
+        _poolContainer = new GameObject("Pool Container");
+
+        CreatePooler();  // Cria os objetos no pool com base na quantidade definida.
     }
 
     private void CreatePooler()
     {
-       for (int i = 0; i < poolSize; i++) // Para cada GameObject no pool,
+        foreach (Pool pool in pools)
         {
-            _pool.Add(CreateInstance()); // Adiciona um novo GameObject.
-        }
-    }
-
-    private GameObject CreateInstance()
-    {
-        int randomIndex = Random.Range(0, prefab.Length); // Gera um índice aleatório para selecionar um prefab.
-        GameObject newInstance = Instantiate(prefab[randomIndex]); // Instancia um novo GameObject aleatório.
-        newInstance.transform.SetParent(_poolContainer.transform); // Define o container do pool como o pai do GameObject.
-        newInstance.SetActive(false); // Desativa o GameObject.
-        return newInstance; // Retorna o GameObject.
-    }
-
-    public GameObject GetInstanceFromPool()
-    {
-        for(int i = 0; i < _pool.Count; i++) // Para cada GameObject no pool,
-        {
-            if (!_pool[i].activeInHierarchy) // Se o GameObject não estiver ativo,
+            for (int i = 0; i < pool.quantity; i++)  // Gera a quantidade de objetos definidos no pool.
             {
-                return _pool[i]; // Retorna o GameObject.
+                GameObject newInstance = CreateInstance(pool.prefab);
+                _pool.Add(newInstance);  // Adiciona o novo objeto ao pool.
             }
         }
-                return CreateInstance(); // Retorna um novo GameObject.
     }
+
+    private GameObject CreateInstance(GameObject prefab)
+    {
+        GameObject newInstance = Instantiate(prefab);  // Instancia um novo objeto a partir do prefab.
+        newInstance.transform.SetParent(_poolContainer.transform);  // Define o contêiner como pai do objeto.
+        newInstance.SetActive(false);  // Desativa o objeto inicialmente.
+        return newInstance;
+    }
+
+    public GameObject GetInstanceFromPool(int poolIndex)
+    {
+        if (poolIndex < 0 || poolIndex >= pools.Length)
+        {
+            Debug.LogError("Índice de pool inválido");
+            return null;
+        }
+
+        Pool pool = pools[poolIndex];
+
+        // Verifica se existe algum objeto inativo no pool para reutilização.
+        for (int i = 0; i < _pool.Count; i++)
+        {
+            if (!_pool[i].activeInHierarchy)
+            {
+                return _pool[i];
+            }
+        }
+
+        // Se nenhum objeto estiver disponível, cria um novo e o adiciona ao pool.
+        GameObject newInstance = CreateInstance(pool.prefab);
+        _pool.Add(newInstance);
+        return newInstance;
+    }
+
+    // Função para remover permanentemente o objeto do pool.
+    public void RemoveFromPool(GameObject instance)
+    {
+        if (_pool.Contains(instance))
+        {
+            _pool.Remove(instance);  // Remove o objeto da lista do pool.
+            Destroy(instance);  // Destrói o objeto permanentemente.
+        }
+    }
+
     public static void ReturnToPool(GameObject instance)
     {
-        instance.SetActive(false); // Desativa o GameObject.
-    } 
+        instance.SetActive(false);  // Apenas desativa o objeto, mas não o remove permanentemente.
+    }
 }

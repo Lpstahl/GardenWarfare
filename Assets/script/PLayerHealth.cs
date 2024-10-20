@@ -1,27 +1,36 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class PLayerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    private int currentHealth;
+    public int health = 3; 
+    public HeartManager heartManager; // Referencia ao HeartManager
 
-    void Start()
+    private void Start()
     {
-        currentHealth = maxHealth;
+        heartManager.SetHealth(health); // Inicializa os corações
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        if (currentHealth <= 0)
+        health -= damage;
+        heartManager.SetHealth(health); // Atualiza os corações
+        if (health <= 0)
         {
             Die();
         }
     }
 
-    void Die()
+    private void Die()
     {
-    
         Debug.Log("Player morreu!");
+       
+          GameOver();
+    }
+
+    private void GameOver()
+    {
+       
+        SceneManager.LoadScene("GameOver"); 
     }
 }
