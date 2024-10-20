@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
         UpdatePointsText(); // Atualiza o texto dos pontos no início
     }
 
-    // Função para gastar pontos
+    // Funcao para gastar pontos
     public bool SpendPoints(int amount)
     {
         if (points >= amount)
@@ -23,14 +23,14 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    // Função para conceder pontos
+    // Funcao para conceder pontos
     public void AddPoints(int amount)
     {
         points += amount;
         UpdatePointsText();
     }
 
-    // Função para comprar torres
+    // Funcao para comprar torres
     public void BuyTower(string towerAssetPath, int cost)
     {
         Debug.Log("Tentando comprar a torre: " + towerAssetPath + " por " + cost + " pontos.");
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
             if (towerPrefab != null)
             {
                 Debug.Log("Prefab da torre carregado com sucesso.");
-                Instantiate(towerPrefab, new Vector3(0, 0, 0), Quaternion.identity); // Ajuste a posição conforme necessário
+                Instantiate(towerPrefab, new Vector3(0, 0, 0), Quaternion.identity); // Ajuste a posicaoo conforme necessario
             }
             else
             {
@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Função para atualizar o texto dos pontos
+    // Funcao para atualizar o texto dos pontos
     private void UpdatePointsText()
     {
         pointsText.text = "Points: " + points.ToString();

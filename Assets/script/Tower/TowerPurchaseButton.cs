@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class TowerPurchaseButton : MonoBehaviour
 {
-    public GameManager gameManager; // Referência ao GameManager
+    public GameManager gameManager; // Referencia ao GameManager
     public string towerAssetPath; // Caminho do asset da torre
     public int cost; // Custo da torre
 

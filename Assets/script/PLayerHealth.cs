@@ -1,9 +1,10 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class PLayerHealth : MonoBehaviour
 {
-    public int health = 3; // Número de corações
-    public HeartManager heartManager; // Referência ao HeartManager
+    public int health = 3; 
+    public HeartManager heartManager; // Referencia ao HeartManager
 
     private void Start()
     {
@@ -23,6 +24,13 @@ public class PLayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player morreu!");
-        // Adicione aqui a lógica para a morte do jogador, como reiniciar o jogo ou mostrar uma tela de game over.
+       
+          GameOver();
+    }
+
+    private void GameOver()
+    {
+       
+        SceneManager.LoadScene("GameOver"); 
     }
 }

@@ -21,13 +21,13 @@ public class Enemy : MonoBehaviour
     private int _currentWaypointIndex;
 
     private PLayerHealth playerHealth; 
-    private GameManager gameManager; // Referência ao GameManager
+    private GameManager gameManager; // Referencia ao GameManager
 
     private void Start()
     {
         _currentWaypointIndex = 0;
         playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<PLayerHealth>();
-        gameManager = FindObjectOfType<GameManager>(); // Obter referência ao GameManager
+        gameManager = FindObjectOfType<GameManager>(); // Obter referencia ao GameManager
         CurrentHealth = initialHealth;
     }
 
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
     private void EndPointReached()
     {
         OnEndReached?.Invoke();
-        playerHealth.TakeDamage(1); // Reduz a saúde do jogador em 1 coração
+        playerHealth.TakeDamage(1); 
         ResetHealth();
         ObjectPooler.ReturnToPool(gameObject);
     }
@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
     {
         ResetHealth();
         OnEnemyKilled?.Invoke();
-        gameManager.AddPoints(10); // Concede 10 pontos ao jogador por derrotar o inimigo
+        gameManager.AddPoints(10); 
         ObjectPooler.ReturnToPool(gameObject);
     }
 }

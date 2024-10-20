@@ -12,18 +12,18 @@ public class Tower : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(Attack()); // inicia o ataque
+        StartCoroutine(Attack());
     }
 
     public void Initialize()
     {
-        // Adicione aqui o código de inicialização necessário para a torre
+       
         StartCoroutine(Attack());
     }
 
     IEnumerator Attack()
     {
-        while (true) // tiros infinitos
+        while (true) 
         {
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(transform.position, attackRange);
             foreach (var enemy in hitEnemies)
