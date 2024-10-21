@@ -7,6 +7,8 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] private int lives = 10; // Define o número de vidas.
 
+    [SerializeField] private GameObject gameOverUI;  // Referência à tela de Game Over.
+
     public int TotalLives { get; set; } // Define o número total de vidas.
     public int CurrentWave { get; set; } // Define a wave atual.
 
@@ -22,7 +24,9 @@ public class LevelManager : MonoBehaviour
 
         if (TotalLives <= 0) // Se o número de vidas for menor ou igual a zero,
         {
-            Debug.Log("Game Over!"); // Exibe a mensagem de Game Over.
+            gameOverUI.SetActive(true);  // Ativa a tela de Game Over.
+                                         // Pause o jogo, se necessário:
+            Time.timeScale = 0f;  // Pausa o tempo do jogo.
         }
     }
 

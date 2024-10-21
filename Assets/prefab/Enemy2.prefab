@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6003030052476435867}
   - component: {fileID: 7433128407606942548}
   m_Layer: 0
-  m_Name: enemy2
+  m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56273c07b39023d4a85797bbf988f94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movespeed: 2
+  movespeed: 6
   initialHealth: 6
   maxHealth: 6
   healthBarPrefab: {fileID: 2564320409711525374, guid: 7097f9cf10239cd4faf9d144af6b746f, type: 3}

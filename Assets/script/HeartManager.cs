@@ -30,3 +30,7 @@ public class HeartManager : MonoBehaviour
         }
     }
 }
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 927fae5a092df0aa69757c981fbfafa85f21c156
